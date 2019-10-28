@@ -3,18 +3,23 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements';
-import Home from './pages/Home';
 
-const HomeNavigator = createAppContainer(
-  createStackNavigator(
-    {
-      Home,
-      // Restaurant specific page
+import Home from './pages/Home';
+import Dishes from './pages/Dishes';
+
+const HomeNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: Home,
+      navigationOptions: {
+        header: null,
+      },
     },
-    {
-      initialRouteName: 'Home',
-    }
-  )
+    Dishes,
+  },
+  {
+    initialRouteName: 'Home',
+  }
 );
 
 const Routes = createAppContainer(
