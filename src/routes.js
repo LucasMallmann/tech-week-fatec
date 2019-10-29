@@ -11,8 +11,16 @@ const HomeNavigator = createStackNavigator(
   {
     Home: {
       screen: Home,
+      headerLayoutPreset: 'center',
       navigationOptions: {
-        header: null,
+        title: 'Food in Vale',
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
       },
     },
     Dishes,

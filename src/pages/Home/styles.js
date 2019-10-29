@@ -8,7 +8,7 @@ export default StyleSheet.create({
     paddingHorizontal: metrics.basePadding,
   },
   form: {
-    paddingTop: metrics.baseMargin * 8,
+    paddingTop: metrics.baseMargin * 1.5,
     paddingBottom: metrics.baseMargin * 1.5,
     borderBottomWidth: 1,
     borderBottomColor: colors.light,
@@ -30,5 +30,9 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     color: colors.darker,
+  },
+  category: {
+    fontSize: 24,
+    fontWeight: 'bold',
   },
 });
