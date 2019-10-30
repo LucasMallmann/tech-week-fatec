@@ -6,9 +6,12 @@ import {
   TouchableOpacity,
   Text,
   FlatList,
-  Image,
+  ScrollView,
 } from 'react-native';
 import { Icon } from 'react-native-elements';
+
+import Category from './Category';
+import Restaurant from './Restaurant';
 
 import styles from './styles';
 
@@ -45,19 +48,57 @@ const data = [
   },
 ];
 
-function Category({ uri, title }) {
+const restaurants = [
+  {
+    id: 1,
+    title: 'Restaurante do Boteco',
+    distance: 0.7,
+    delivery_time: 40,
+    delivery_price: 3,
+    minimum_price: 12,
+    category: 'Lanches',
+    image_url:
+      'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
+  },
+  {
+    id: 2,
+    title: 'Restaurante do Boteco',
+    distance: 0.7,
+    delivery_time: 40,
+    delivery_price: 3,
+    minimum_price: 12,
+    category: 'Lanches',
+    image_url:
+      'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
+  },
+  {
+    id: 3,
+    title: 'Restaurante do Boteco',
+    distance: 0.7,
+    delivery_time: 40,
+    delivery_price: 3,
+    minimum_price: 12,
+    category: 'Lanches',
+    image_url:
+      'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
+  },
+  {
+    id: 4,
+    title: 'Restaurante do Boteco',
+    distance: 0.7,
+    delivery_time: 40,
+    delivery_price: 3,
+    category: 'Lanches',
+    image_url:
+      'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
+  },
+];
+
+function renderResaurantItem({ item }) {
   return (
-    <View style={{ paddingHorizontal: 10 }}>
-      <Image
-        source={{ uri }}
-        style={{
-          width: 65,
-          height: 65,
-          borderRadius: 5,
-        }}
-      />
-      <Text>{title}</Text>
-    </View>
+    <TouchableOpacity>
+      <Restaurant />
+    </TouchableOpacity>
   );
 }
 
@@ -80,17 +121,30 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      <Text style={styles.category}>Categorias</Text>
-      <FlatList
-        data={data}
-        keyExtractor={item => item.id.toString()}
-        horizontal
-        renderItem={({ item }) => (
-          <Category uri={item.url} title={item.title} />
-        )}
-      />
+      <ScrollView>
+        <Text style={styles.titleLabel}>Categorias</Text>
+        <View style={styles.categoriesContainer}>
+          <FlatList
+            data={data}
+            keyExtractor={item => item.id.toString()}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <Category uri={item.url} title={item.title} />
+            )}
+          />
+        </View>
 
-      <Text style={{ fontSize: 20 }}>Restaurantes aqui</Text>
+        <Text style={styles.titleLabel}>Restaurantes</Text>
+        <View>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={restaurants}
+            keyExtractor={item => item.id.toString()}
+            renderItem={renderResaurantItem}
+          />
+        </View>
+      </ScrollView>
     </View>
   );
 }

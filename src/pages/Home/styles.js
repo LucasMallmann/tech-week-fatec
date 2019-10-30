@@ -4,7 +4,7 @@ import { colors, metrics } from '../../styles';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.lighter,
+    backgroundColor: colors.white,
     paddingHorizontal: metrics.basePadding,
   },
   form: {
@@ -17,7 +17,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.lighter,
+    color: colors.dark,
     flex: 1,
     marginRight: metrics.baseMargin,
     height: 34,
@@ -26,12 +27,17 @@ export default StyleSheet.create({
     paddingTop: metrics.basePadding / 2,
     paddingBottom: metrics.basePadding / 2,
   },
+  categoriesContainer: {
+    marginVertical: metrics.baseMargin,
+    height: 120,
+    justifyContent: 'center',
+  },
   buttonIcon: {
     fontWeight: 'bold',
     fontSize: 16,
     color: colors.darker,
   },
-  category: {
+  titleLabel: {
     fontSize: 24,
     fontWeight: 'bold',
   },
