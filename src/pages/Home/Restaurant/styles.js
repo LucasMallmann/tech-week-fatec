@@ -4,15 +4,14 @@ import { colors, metrics } from '../../../styles';
 export default StyleSheet.create({
   container: {
     flexDirection: 'row',
-    // flex: 1,
-    marginVertical: metrics.baseMargin * 1.5,
+    marginVertical: metrics.baseMargin,
     borderWidth: 1,
     borderColor: colors.light,
+    borderRadius: 4,
   },
   imageContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 0.4,
     borderStyle: 'solid',
     borderRightColor: colors.light,
     borderRightWidth: 1,
@@ -36,30 +35,32 @@ export default StyleSheet.create({
   categoryContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    width: 120,
-    marginVertical: metrics.baseMargin / 1.5,
+    marginTop: metrics.baseMargin / 1.5,
   },
   dot: {
     backgroundColor: colors.regular,
     width: 3,
     height: 3,
     borderRadius: 3 / 2,
+    marginRight: metrics.baseMargin / 2,
   },
   label: {
+    marginRight: metrics.baseMargin / 2,
     color: colors.regular,
   },
   delivery: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    width: 200,
+    marginTop: metrics.baseMargin / 1.5,
   },
   deliveryLabel: {
-    fontSize: 14,
+    fontSize: 15,
     color: colors.regular,
   },
   free: {
+    marginLeft: metrics.baseMargin,
+    textTransform: 'uppercase',
     color: colors.success,
+    fontSize: 15,
   },
 });

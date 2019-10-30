@@ -22,9 +22,9 @@ export default function Restaurant() {
           <View style={styles.dot} />
           <Text style={styles.label}>2,0km</Text>
         </View>
-        <View>
-          <Text>40-50 min</Text>
-          <Text>Entrega R$2,00|</Text>
+        <View style={styles.delivery}>
+          <Text style={styles.deliveryLabel}>40-50 min</Text>
+          <Text style={styles.free}>Entrega GRÁTIS</Text>
         </View>
       </View>
     </View>

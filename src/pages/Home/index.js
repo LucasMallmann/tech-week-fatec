@@ -121,7 +121,7 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView>
+      <ScrollView showsHorizontalScrollIndicator={false} style={styles.scroll}>
         <Text style={styles.titleLabel}>Categorias</Text>
         <View style={styles.categoriesContainer}>
           <FlatList

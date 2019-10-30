@@ -27,9 +27,12 @@ export default StyleSheet.create({
     paddingTop: metrics.basePadding / 2,
     paddingBottom: metrics.basePadding / 2,
   },
+  scroll: {
+    paddingTop: metrics.basePadding,
+  },
   categoriesContainer: {
     marginVertical: metrics.baseMargin,
-    height: 120,
+    height: 110,
     justifyContent: 'center',
   },
   buttonIcon: {
