@@ -11,7 +11,6 @@ const HomeNavigator = createStackNavigator(
   {
     Home: {
       screen: Home,
-      headerLayoutPreset: 'center',
       navigationOptions: {
         title: 'Food in Vale',
         headerStyle: {
@@ -26,6 +25,7 @@ const HomeNavigator = createStackNavigator(
     Dishes,
   },
   {
+    headerLayoutPreset: 'center',
     initialRouteName: 'Home',
   }
 );
