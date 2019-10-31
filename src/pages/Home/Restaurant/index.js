@@ -3,22 +3,21 @@ import { View, Image, Text } from 'react-native';
 
 import styles from './styles';
 
-export default function Restaurant() {
+export default function Restaurant({ title, distance, category, uri }) {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
           source={{
-            uri:
-              'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
+            uri,
           }}
         />
       </View>
       <View style={styles.aboutContainer}>
-        <Text style={styles.title}>Burgeria Top</Text>
+        <Text style={styles.title}>{title}</Text>
         <View style={styles.categoryContainer}>
-          <Text style={styles.label}>Lanches</Text>
+          <Text style={styles.label}>{category}</Text>
           <View style={styles.dot} />
           <Text style={styles.label}>2,0km</Text>
         </View>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+/* eslint-disable no-shadow */
+import React, { useState, useEffect } from 'react';
 // import PropTypes from 'prop-types';
 import {
   View,
@@ -7,8 +8,11 @@ import {
   Text,
   FlatList,
   ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 import { Icon } from 'react-native-elements';
+
+import api from '../../services/api';
 
 import Category from './Category';
 import Restaurant from './Restaurant';
@@ -48,62 +52,41 @@ const data = [
   },
 ];
 
-const restaurants = [
-  {
-    id: 1,
-    title: 'Restaurante do Boteco',
-    distance: 0.7,
-    delivery_time: 40,
-    delivery_price: 3,
-    minimum_price: 12,
-    category: 'Lanches',
-    image_url:
-      'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
-  },
-  {
-    id: 2,
-    title: 'Restaurante do Boteco',
-    distance: 0.7,
-    delivery_time: 40,
-    delivery_price: 3,
-    minimum_price: 12,
-    category: 'Lanches',
-    image_url:
-      'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
-  },
-  {
-    id: 3,
-    title: 'Restaurante do Boteco',
-    distance: 0.7,
-    delivery_time: 40,
-    delivery_price: 3,
-    minimum_price: 12,
-    category: 'Lanches',
-    image_url:
-      'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
-  },
-  {
-    id: 4,
-    title: 'Restaurante do Boteco',
-    distance: 0.7,
-    delivery_time: 40,
-    delivery_price: 3,
-    category: 'Lanches',
-    image_url:
-      'https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg',
-  },
-];
-
 function renderResaurantItem({ item }) {
   return (
     <TouchableOpacity>
-      <Restaurant />
+      <Restaurant
+        title={item.title}
+        category={item.category}
+        uri={item.image_url}
+      />
     </TouchableOpacity>
   );
 }
 
 export default function Home() {
   const [restaurant, setRestaurant] = useState('');
+  const [restaurants, setRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
+
+  async function loadRestaurants() {
+    setRefreshing(true);
+    const response = await api.get('/restaurants');
+
+    const restaurantData = response.data.map(restaurant => ({
+      ...restaurant,
+      id: restaurant.id.toString(),
+    }));
+
+    setRestaurants(restaurantData);
+    setLoading(false);
+    setRefreshing(false);
+  }
+
+  useEffect(() => {
+    loadRestaurants();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -121,7 +104,7 @@ export default function Home() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView showsHorizontalScrollIndicator={false} style={styles.scroll}>
+      <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
         <Text style={styles.titleLabel}>Categorias</Text>
         <View style={styles.categoriesContainer}>
           <FlatList
@@ -137,12 +120,22 @@ export default function Home() {
 
         <Text style={styles.titleLabel}>Restaurantes</Text>
         <View>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={restaurants}
-            keyExtractor={item => item.id.toString()}
-            renderItem={renderResaurantItem}
-          />
+          {loading ? (
+            <ActivityIndicator
+              style={styles.loading}
+              color="#f4511e"
+              size={24}
+            />
+          ) : (
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={restaurants}
+              keyExtractor={item => item.id}
+              renderItem={renderResaurantItem}
+              onRefresh={loadRestaurants}
+              refreshing={refreshing}
+            />
+          )}
         </View>
       </ScrollView>
     </View>

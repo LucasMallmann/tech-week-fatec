@@ -29,6 +29,10 @@ export default StyleSheet.create({
   },
   scroll: {
     paddingTop: metrics.basePadding,
+    marginBottom: metrics.baseMargin * 2,
+  },
+  loading: {
+    marginTop: metrics.baseMargin * 2,
   },
   categoriesContainer: {
     marginVertical: metrics.baseMargin,

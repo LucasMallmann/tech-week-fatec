@@ -12,17 +12,17 @@
     },
     {
       "id": 2,
-      "title": "Restaurante do Boteco",
+      "title": "Tempesto",
       "distance": 0.7,
       "delivery_time": 40,
       "delivery_price": 3,
       "minimum_price": 12,
       "category": "Lanches",
-      "image_url": "https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg"
+      "image_url": "https://image.shutterstock.com/image-vector/restaurant-logo-template-260nw-1254530365.jpg"
     },
     {
       "id": 3,
-      "title": "Restaurante do Boteco",
+      "title": "Boca nervosa",
       "distance": 0.7,
       "delivery_time": 40,
       "delivery_price": 3,
@@ -37,7 +37,7 @@
       "delivery_time": 40,
       "delivery_price": 3,
       "category": "Lanches",
-      "image_url": "https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg"
+      "image_url": "https://i.etsystatic.com/11979725/r/il/425b9a/1431687786/il_570xN.1431687786_w5a8.jpg"
     }
   ],
   "dishes": [
