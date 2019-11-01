@@ -3,7 +3,13 @@ import { View, Image, Text } from 'react-native';
 
 import styles from './styles';
 
-export default function Restaurant({ title, distance, category, uri }) {
+export default function Restaurant({
+  title,
+  distance,
+  category,
+  uri,
+  deliveryPrice,
+}) {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -19,11 +25,11 @@ export default function Restaurant({ title, distance, category, uri }) {
         <View style={styles.categoryContainer}>
           <Text style={styles.label}>{category}</Text>
           <View style={styles.dot} />
-          <Text style={styles.label}>2,0km</Text>
+          <Text style={styles.label}>{distance}</Text>
         </View>
         <View style={styles.delivery}>
           <Text style={styles.deliveryLabel}>40-50 min</Text>
-          <Text style={styles.free}>Entrega GRÁTIS</Text>
+          <Text style={styles.free}>{deliveryPrice}</Text>
         </View>
       </View>
     </View>

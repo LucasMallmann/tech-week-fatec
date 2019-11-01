@@ -1,7 +1,5 @@
 import axios from 'axios';
-
-// TODO: CHANGE TO YOUR IP
-const ip = '192.168.0.31';
+import { ip } from '../config/ip';
 
 const baseURL = `http://${ip}:3333`;
 

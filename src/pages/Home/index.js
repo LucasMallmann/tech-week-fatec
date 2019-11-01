@@ -18,39 +18,7 @@ import Category from './Category';
 import Restaurant from './Restaurant';
 
 import styles from './styles';
-
-const data = [
-  {
-    id: 1,
-    url:
-      'https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg',
-    title: 'Lanches',
-  },
-  {
-    id: 2,
-    url:
-      'https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg',
-    title: 'Lanches',
-  },
-  {
-    id: 3,
-    url:
-      'https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg',
-    title: 'Lanches',
-  },
-  {
-    id: 4,
-    url:
-      'https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg',
-    title: 'Lanches',
-  },
-  {
-    id: 5,
-    url:
-      'https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg',
-    title: 'Lanches',
-  },
-];
+import { formatMetersToKm } from '../../util/format';
 
 function renderResaurantItem({ item }) {
   return (
@@ -59,6 +27,8 @@ function renderResaurantItem({ item }) {
         title={item.title}
         category={item.category}
         uri={item.image_url}
+        distance={item.distance}
+        deliveryPrice={item.delivery_price}
       />
     </TouchableOpacity>
   );
@@ -69,6 +39,12 @@ export default function Home() {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  const loadCategories = async () => {
+    const response = await api.get('/categories');
+    setCategories(response.data);
+  };
 
   async function loadRestaurants() {
     setRefreshing(true);
@@ -77,6 +53,8 @@ export default function Home() {
     const restaurantData = response.data.map(restaurant => ({
       ...restaurant,
       id: restaurant.id.toString(),
+      distance: formatMetersToKm(restaurant.distance),
+      deliveryPrice: restaurant.delivery_price,
     }));
 
     setRestaurants(restaurantData);
@@ -86,6 +64,7 @@ export default function Home() {
 
   useEffect(() => {
     loadRestaurants();
+    loadCategories();
   }, []);
 
   return (
@@ -108,7 +87,7 @@ export default function Home() {
         <Text style={styles.titleLabel}>Categorias</Text>
         <View style={styles.categoriesContainer}>
           <FlatList
-            data={data}
+            data={categories}
             keyExtractor={item => item.id.toString()}
             horizontal
             showsHorizontalScrollIndicator={false}
