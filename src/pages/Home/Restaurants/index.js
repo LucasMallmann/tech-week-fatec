@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import {
   View,
-  Image,
-  Text,
   ActivityIndicator,
   FlatList,
   RefreshControl,
 } from 'react-native';
-import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 import styles from './styles';
 import { formatMetersToKm } from '../../../util/format';
 import api from '../../../services/api';
+import renderRestaurantItem from './components/renderRestaurantItem';
 
 export default function Restaurants({ restaurant }) {
   const [restaurants, setRestaurants] = useState([]);
@@ -40,35 +39,6 @@ export default function Restaurants({ restaurant }) {
   useEffect(() => {
     loadRestaurants();
   }, [restaurant]);
-
-  function renderRestaurantItem(param) {
-    return (
-      <TouchableOpacity>
-        <View style={styles.container}>
-          <View style={styles.imageContainer}>
-            <Image
-              style={styles.image}
-              source={{
-                uri: param.item.image_url,
-              }}
-            />
-          </View>
-          <View style={styles.aboutContainer}>
-            <Text style={styles.title}>{param.item.title}</Text>
-            <View style={styles.categoryContainer}>
-              <Text style={styles.label}>{param.item.category}</Text>
-              <View style={styles.dot} />
-              <Text style={styles.label}>{param.item.distance}</Text>
-            </View>
-            <View style={styles.delivery}>
-              <Text style={styles.deliveryLabel}>40-50 min</Text>
-              <Text style={styles.free}>{param.item.deliveryPrice}</Text>
-            </View>
-          </View>
-        </View>
-      </TouchableOpacity>
-    );
-  }
 
   return (
     <View style={styles.containerRestaurants}>
