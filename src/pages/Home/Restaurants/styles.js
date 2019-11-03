@@ -2,6 +2,9 @@ import { StyleSheet } from 'react-native';
 import { colors, metrics } from '../../../styles';
 
 export default StyleSheet.create({
+  containerRestaurants: {
+    marginBottom: 10,
+  },
   container: {
     flexDirection: 'row',
     marginVertical: metrics.baseMargin,
@@ -62,5 +65,8 @@ export default StyleSheet.create({
     textTransform: 'uppercase',
     color: colors.success,
     fontSize: 15,
+  },
+  loading: {
+    marginTop: metrics.baseMargin * 2,
   },
 });

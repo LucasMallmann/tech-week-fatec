@@ -7,37 +7,9 @@ export default StyleSheet.create({
     backgroundColor: colors.white,
     paddingHorizontal: metrics.basePadding,
   },
-  form: {
-    paddingTop: metrics.baseMargin * 1.5,
-    paddingBottom: metrics.baseMargin * 1.5,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.light,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  input: {
-    backgroundColor: colors.lighter,
-    color: colors.dark,
-    flex: 1,
-    marginRight: metrics.baseMargin,
-    height: 34,
-    borderRadius: metrics.baseRadius,
-    paddingHorizontal: metrics.basePadding / 2,
-    paddingTop: metrics.basePadding / 2,
-    paddingBottom: metrics.basePadding / 2,
-  },
   scroll: {
     paddingTop: metrics.basePadding,
     marginBottom: metrics.baseMargin * 2,
-  },
-  loading: {
-    marginTop: metrics.baseMargin * 2,
-  },
-  categoriesContainer: {
-    marginVertical: metrics.baseMargin,
-    height: 110,
-    justifyContent: 'center',
   },
   buttonIcon: {
     fontWeight: 'bold',

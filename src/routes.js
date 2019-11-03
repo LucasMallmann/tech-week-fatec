@@ -14,9 +14,9 @@ const HomeNavigator = createStackNavigator(
       navigationOptions: {
         title: 'Food in Vale',
         headerStyle: {
-          backgroundColor: '#f4511e',
+          backgroundColor: '#fff',
         },
-        headerTintColor: '#fff',
+        headerTintColor: '#f4111e',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
@@ -33,17 +33,17 @@ const HomeNavigator = createStackNavigator(
 const Routes = createAppContainer(
   createBottomTabNavigator(
     {
-      HomeNavigator,
+      Home: HomeNavigator,
       // Other pages
     },
     {
-      initialRouteName: 'HomeNavigator',
+      initialRouteName: 'Home',
       defaultNavigationOptions: ({ navigation }) => ({
         // eslint-disable-next-line react/prop-types
         tabBarIcon: ({ tintColor }) => {
           const { routeName } = navigation.state;
           let iconName;
-          if (routeName === 'HomeNavigator') {
+          if (routeName === 'Home') {
             iconName = 'home';
           }
           return (
@@ -57,7 +57,7 @@ const Routes = createAppContainer(
         },
       }),
       tabBarOptions: {
-        activeTintColor: '#5FB8FB',
+        activeTintColor: '#f4111e',
         inactiveTintColor: '#C4C4C4',
       },
     }
