@@ -1,71 +1,13 @@
-/* eslint-disable no-shadow */
-import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
-import {
-  View,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  FlatList,
-  ScrollView,
-  ActivityIndicator,
-} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, ScrollView, TextInput } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-elements';
-
-import api from '../../services/api';
-
-import Category from './Category';
-import Restaurant from './Restaurant';
-
+import Categories from './Categories';
+import Restaurants from './Restaurants';
 import styles from './styles';
-import { formatMetersToKm } from '../../util/format';
-
-function renderResaurantItem({ item }) {
-  return (
-    <TouchableOpacity>
-      <Restaurant
-        title={item.title}
-        category={item.category}
-        uri={item.image_url}
-        distance={item.distance}
-        deliveryPrice={item.delivery_price}
-      />
-    </TouchableOpacity>
-  );
-}
 
 export default function Home() {
   const [restaurant, setRestaurant] = useState('');
-  const [restaurants, setRestaurants] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
-  const [categories, setCategories] = useState([]);
-
-  const loadCategories = async () => {
-    const response = await api.get('/categories');
-    setCategories(response.data);
-  };
-
-  async function loadRestaurants() {
-    setRefreshing(true);
-    const response = await api.get('/restaurants');
-
-    const restaurantData = response.data.map(restaurant => ({
-      ...restaurant,
-      id: restaurant.id.toString(),
-      distance: formatMetersToKm(restaurant.distance),
-      deliveryPrice: restaurant.delivery_price,
-    }));
-
-    setRestaurants(restaurantData);
-    setLoading(false);
-    setRefreshing(false);
-  }
-
-  useEffect(() => {
-    loadRestaurants();
-    loadCategories();
-  }, []);
 
   return (
     <View style={styles.container}>
@@ -85,44 +27,11 @@ export default function Home() {
 
       <ScrollView showsVerticalScrollIndicator={false} style={styles.scroll}>
         <Text style={styles.titleLabel}>Categorias</Text>
-        <View style={styles.categoriesContainer}>
-          <FlatList
-            data={categories}
-            keyExtractor={item => item.id.toString()}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <Category uri={item.url} title={item.title} />
-            )}
-          />
-        </View>
+        <Categories />
 
         <Text style={styles.titleLabel}>Restaurantes</Text>
-        <View>
-          {loading ? (
-            <ActivityIndicator
-              style={styles.loading}
-              color="#f4511e"
-              size={24}
-            />
-          ) : (
-            <FlatList
-              showsVerticalScrollIndicator={false}
-              data={restaurants}
-              keyExtractor={item => item.id}
-              renderItem={renderResaurantItem}
-              onRefresh={loadRestaurants}
-              refreshing={refreshing}
-            />
-          )}
-        </View>
+        <Restaurants restaurant={restaurant} />
       </ScrollView>
     </View>
   );
 }
-
-// Home.propTypes = {
-//   navigation: PropTypes.shape({
-//     navigate: PropTypes.func,
-//   }).isRequired,
-// };

@@ -1,6 +1,5 @@
 {
-  "restaurants": [
-    {
+  "restaurants": [{
       "id": 1,
       "title": "Restaurante do Boteco",
       "distance": 2000,
@@ -40,8 +39,7 @@
       "image_url": "https://i.etsystatic.com/11979725/r/il/425b9a/1431687786/il_570xN.1431687786_w5a8.jpg"
     }
   ],
-  "dishes": [
-    {
+  "dishes": [{
       "restaurantId": 1,
       "id": 1,
       "title": "Albus Dumbledore",
@@ -63,8 +61,7 @@
       "price": 20
     }
   ],
-  "categories": [
-    {
+  "categories": [{
       "id": 1,
       "url": "https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg",
       "title": "Lanches"

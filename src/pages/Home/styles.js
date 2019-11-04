@@ -7,6 +7,19 @@ export default StyleSheet.create({
     backgroundColor: colors.white,
     paddingHorizontal: metrics.basePadding,
   },
+  scroll: {
+    paddingTop: metrics.basePadding,
+    marginBottom: metrics.baseMargin * 2,
+  },
+  buttonIcon: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: colors.darker,
+  },
+  titleLabel: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
   form: {
     paddingTop: metrics.baseMargin * 1.5,
     paddingBottom: metrics.baseMargin * 1.5,
@@ -26,26 +39,5 @@ export default StyleSheet.create({
     paddingHorizontal: metrics.basePadding / 2,
     paddingTop: metrics.basePadding / 2,
     paddingBottom: metrics.basePadding / 2,
-  },
-  scroll: {
-    paddingTop: metrics.basePadding,
-    marginBottom: metrics.baseMargin * 2,
-  },
-  loading: {
-    marginTop: metrics.baseMargin * 2,
-  },
-  categoriesContainer: {
-    marginVertical: metrics.baseMargin,
-    height: 110,
-    justifyContent: 'center',
-  },
-  buttonIcon: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: colors.darker,
-  },
-  titleLabel: {
-    fontSize: 24,
-    fontWeight: 'bold',
   },
 });

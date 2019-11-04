@@ -16,4 +16,9 @@ export default StyleSheet.create({
     marginTop: metrics.baseMargin,
     color: colors.dark,
   },
+  categoriesContainer: {
+    marginVertical: metrics.baseMargin,
+    height: 110,
+    justifyContent: 'center',
+  },
 });
