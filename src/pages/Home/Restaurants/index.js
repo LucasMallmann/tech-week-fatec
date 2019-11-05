@@ -7,10 +7,12 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
+
 import styles from './styles';
+
 import { formatMetersToKm } from '../../../util/format';
 import api from '../../../services/api';
-import renderRestaurantItem from './components/renderRestaurantItem';
+import RestaurantItem from './RestaurantItem';
 
 export default function Restaurants({ restaurant }) {
   const [restaurants, setRestaurants] = useState([]);
@@ -19,6 +21,7 @@ export default function Restaurants({ restaurant }) {
 
   async function loadRestaurants() {
     setRefreshing(true);
+
     const response =
       restaurant === ''
         ? await api.get('/restaurants')
@@ -34,6 +37,20 @@ export default function Restaurants({ restaurant }) {
     setRestaurants(restaurantData);
     setLoading(false);
     setRefreshing(false);
+  }
+
+  function renderRestaurantItem({ item }) {
+    return (
+      <RestaurantItem
+        id={item.id}
+        url={item.image_url}
+        title={item.title}
+        category={item.category}
+        distance={item.distance}
+        deliveryTime={item.delivery_time}
+        deliveryPrice={item.delivery_price}
+      />
+    );
   }
 
   useEffect(() => {

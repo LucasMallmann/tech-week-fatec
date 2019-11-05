@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, ScrollView, TextInput } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Icon } from 'react-native-elements';
+import PropTypes from 'prop-types';
+
 import Categories from './Categories';
 import Restaurants from './Restaurants';
 import styles from './styles';
