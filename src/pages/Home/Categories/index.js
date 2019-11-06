@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList, Image, Text } from 'react-native';
+import { View, FlatList, Image, Text, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 import api from '../../../services/api';
@@ -18,10 +18,10 @@ export default function Categories() {
   };
 
   const renderCategoryItem = ({ item }) => (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image source={{ uri: item.url }} style={styles.image} />
       <Text style={styles.title}>{item.title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 
   useEffect(() => {

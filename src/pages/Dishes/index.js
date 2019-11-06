@@ -66,7 +66,7 @@ export default function Dishes() {
 
           <View style={styles.status}>
             <View style={styles.icon}>
-              <Icon color="#FB565A" type="font-awesome" name="home" size={32} />
+              <Icon color="#EA1D2C" type="font-awesome" name="home" size={40} />
             </View>
             <View>
               <Text style={styles.open}>Restaurante Aberto</Text>

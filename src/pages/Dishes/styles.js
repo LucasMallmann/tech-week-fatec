@@ -57,11 +57,11 @@ export default StyleSheet.create({
   },
   icon: {
     marginRight: metrics.baseMargin * 2,
-    width: 50,
-    height: 50,
-    borderRadius: 50 / 2,
-    borderColor: '#FB565A',
-    borderWidth: 1,
+    width: 60,
+    height: 60,
+    borderRadius: 60 / 2,
+    borderColor: colors.primary,
+    borderWidth: 1.5,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -71,6 +71,6 @@ export default StyleSheet.create({
     marginBottom: metrics.baseMargin,
   },
   loading: {
-    marginTop: metrics.baseMargin * 2,
+    marginTop: metrics.baseMargin * 2.5,
   },
 });
