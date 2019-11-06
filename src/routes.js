@@ -3,8 +3,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements';
-import { Image, StyleSheet } from 'react-native';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { colors } from './styles';
 
 import Home from './pages/Home';
 import Dishes from './pages/Dishes';
@@ -18,32 +17,13 @@ const HomeNavigator = createStackNavigator(
         headerStyle: {
           backgroundColor: '#fff',
         },
-        headerTintColor: '#f4111e',
+        headerTintColor: colors.primary,
         headerTitleStyle: {
           fontWeight: 'bold',
         },
       },
     },
-    Dishes: {
-      screen: Dishes,
-      // navigationOptions: {
-      //   headerBackground: (
-      //     <Image
-      //       style={StyleSheet.absoluteFill}
-      //       source={{
-      //         uri:
-      //           'https://upload.wikimedia.org/wikipedia/commons/3/36/Hopetoun_falls.jpg',
-      //       }}
-      //     />
-      //   ),
-      //   headerTintColor: '#fff',
-      //   headerStyle: {
-      //     marginTop: getStatusBarHeight(),
-      //     height: 60,
-      //     textAlignVertical: 'center',
-      //   },
-      // },
-    },
+    Dishes,
   },
   {
     headerLayoutPreset: 'center',
