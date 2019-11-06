@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { Icon } from 'react-native-elements';
 
 import api from '../../services/api';
 import { formatMetersToKm } from '../../util/format';
@@ -65,8 +66,13 @@ export default function Dishes() {
           style={styles.plate}
         />
         <View style={styles.status}>
-          <Text style={styles.open}>Restaurante Aberto</Text>
-          <Text styçe={styles.closesAt}>Fecha às 22:00</Text>
+          <View style={styles.icon}>
+            <Icon color="#FB565A" type="font-awesome" name="home" size={32} />
+          </View>
+          <View>
+            <Text style={styles.open}>Restaurante Aberto</Text>
+            <Text styçe={styles.closesAt}>Fecha às 22:00</Text>
+          </View>
         </View>
       </View>
     </View>

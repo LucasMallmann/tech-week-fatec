@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   logoContainer: {
     alignItems: 'center',
-    marginVertical: metrics.baseMargin,
+    marginTop: metrics.baseMargin,
   },
   logo: {
     height: 100,
@@ -23,9 +23,9 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   restaurantInfo: {
+    marginTop: metrics.baseMargin * 1,
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: metrics.baseMargin,
   },
   dot: {
     backgroundColor: colors.regular,
@@ -39,10 +39,37 @@ export default StyleSheet.create({
     color: colors.regular,
   },
   delivery: {
-    fontSize: 16,
+    marginTop: metrics.baseMargin / 1.5,
     color: colors.darker,
+    borderWidth: 1,
+    borderColor: colors.light,
+    alignSelf: 'flex-start',
+    padding: 3,
+    borderRadius: metrics.baseRadius,
   },
   statusContainer: {
-    backgroundColor: colors.light,
+    marginTop: metrics.baseMargin * 2,
+    backgroundColor: colors.lighter,
+    borderRadius: metrics.baseRadius,
+  },
+  status: {
+    padding: metrics.basePadding,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  icon: {
+    marginRight: metrics.baseMargin * 2,
+    width: 50,
+    height: 50,
+    borderRadius: 50 / 2,
+    borderColor: '#FB565A',
+    borderWidth: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  open: {
+    color: colors.dark,
+    fontSize: 18,
+    marginBottom: metrics.baseMargin,
   },
 });
