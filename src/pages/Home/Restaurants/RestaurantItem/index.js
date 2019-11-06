@@ -16,7 +16,7 @@ export default function RestaurantItem({
   const { navigate } = useNavigation();
 
   return (
-    <TouchableOpacity onPress={() => navigate('Dishes', { id })}>
+    <TouchableOpacity onPress={() => navigate('Dishes', { id, title })}>
       <View style={styles.container}>
         <View style={styles.imageContainer}>
           <Image

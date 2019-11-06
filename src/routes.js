@@ -3,7 +3,8 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements';
-import { Image, StyleSheet } from 'react-native';
+import { colors } from './styles';
+
 import Home from './pages/Home';
 import Dishes from './pages/Dishes';
 import Fake from './pages/Fake';
@@ -17,15 +18,13 @@ const HomeNavigator = createStackNavigator(
         headerStyle: {
           backgroundColor: '#fff',
         },
-        headerTintColor: '#f4111e',
+        headerTintColor: colors.primary,
         headerTitleStyle: {
           fontWeight: 'bold',
         },
       },
     },
-    Dishes: {
-      screen: Dishes,
-    },
+    Dishes,
   },
   {
     headerLayoutPreset: 'center',

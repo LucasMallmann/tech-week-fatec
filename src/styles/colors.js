@@ -7,7 +7,7 @@ export const colors = {
   darker: '#333',
   black: '#000',
 
-  primary: '#7A91CA',
+  primary: '#EA1D2C',
   secondary: '#444A5A',
   success: '#9DCA83',
   danger: '#E37A7A',
