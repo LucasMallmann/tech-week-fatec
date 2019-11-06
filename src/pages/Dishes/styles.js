@@ -47,12 +47,10 @@ export default StyleSheet.create({
     padding: 3,
     borderRadius: metrics.baseRadius,
   },
-  statusContainer: {
+  status: {
     marginTop: metrics.baseMargin * 2,
     backgroundColor: colors.lighter,
     borderRadius: metrics.baseRadius,
-  },
-  status: {
     padding: metrics.basePadding,
     flexDirection: 'row',
     alignItems: 'center',
@@ -71,5 +69,8 @@ export default StyleSheet.create({
     color: colors.dark,
     fontSize: 18,
     marginBottom: metrics.baseMargin,
+  },
+  loading: {
+    marginTop: metrics.baseMargin * 2,
   },
 });
