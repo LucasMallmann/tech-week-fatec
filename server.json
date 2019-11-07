@@ -1,10 +1,11 @@
 {
-  "restaurants": [{
+  "restaurants": [
+    {
       "id": 1,
       "title": "Restaurante do Boteco",
-      "distance": 2000,
-      "delivery_time": "40 - 50 min",
-      "delivery_price": "R$3,00",
+      "distance": 2700,
+      "delivery_time": "10 - 15 min",
+      "delivery_price": "R$5,00",
       "minimum_price": 12,
       "category": "Lanches",
       "image_url": "https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg"
@@ -12,9 +13,9 @@
     {
       "id": 2,
       "title": "Tempesto",
-      "distance": 2000,
+      "distance": 9800,
       "delivery_time": "40 - 50 min",
-      "delivery_price": "R$3,00",
+      "delivery_price": "R$1,00",
       "minimum_price": 12,
       "category": "Lanches",
       "image_url": "https://image.shutterstock.com/image-vector/restaurant-logo-template-260nw-1254530365.jpg"
@@ -22,9 +23,9 @@
     {
       "id": 3,
       "title": "Boca nervosa",
-      "distance": 2000,
-      "delivery_time": "40 - 50 min",
-      "delivery_price": "R$3,00",
+      "distance": 1500,
+      "delivery_time": "80 - 120 min",
+      "delivery_price": "R$2,00",
       "minimum_price": 12,
       "category": "Lanches",
       "image_url": "https://freelogo-assets.s3.amazonaws.com/sites/all/themes/freelogoservices/images/smalllogorestaurant1.jpg"
@@ -33,58 +34,60 @@
       "id": 4,
       "title": "Restaurante do Boteco",
       "distance": 2000,
-      "delivery_time": "40 - 50 min",
+      "delivery_time": "30 - 40 min",
       "delivery_price": "R$3,00",
       "category": "Lanches",
       "image_url": "https://i.etsystatic.com/11979725/r/il/425b9a/1431687786/il_570xN.1431687786_w5a8.jpg"
     }
   ],
-  "dishes": [{
+  "dishes": [
+    {
       "restaurantId": 1,
       "id": 1,
       "title": "Albus Dumbledore",
       "ingredients": "Pão normal, 2 hamburguers 90g, queijo mussarela, 2 fatias de Bacon, cebola roxa, maionsese",
-      "price": 16
+      "price": "R$18,00"
     },
     {
       "restaurantId": 1,
       "id": 2,
       "title": "Burguinho",
       "ingredients": "Pão top, 3 hamburguers 50g, queijo prato, 2 fatias de Bacon, cebola roxa, maionsese",
-      "price": 24
+      "price": "R$18,00"
     },
     {
       "restaurantId": 2,
       "id": 3,
       "title": "Pizza",
       "ingredients": "Massa caseira, frango, molho de tomate, cebola roxa e tomate seco",
-      "price": 20
+      "price": "R$18,00"
     }
   ],
-  "categories": [{
+  "categories": [
+    {
       "id": 1,
       "url": "https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg",
       "title": "Lanches"
     },
     {
       "id": 2,
-      "url": "https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg",
-      "title": "Lanches"
+      "url": "https://images4.alphacoders.com/943/943258.jpg",
+      "title": "Massas"
     },
     {
       "id": 3,
-      "url": "https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg",
-      "title": "Lanches"
+      "url": "https://images7.alphacoders.com/404/404658.jpg",
+      "title": "Bolos"
     },
     {
       "id": 4,
-      "url": "https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg",
-      "title": "Lanches"
+      "url": "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/28/11/sushi-istock.gif",
+      "title": "Japonesa"
     },
     {
       "id": 5,
-      "url": "https://i.pinimg.com/originals/d8/8a/ca/d88acacdd20c6e4af73520058cb85aca.jpg",
-      "title": "Lanches"
+      "url": "https://i.pinimg.com/originals/1f/97/96/1f979673442679706640df8c0cfb70a4.jpg",
+      "title": "Brasileira"
     }
   ]
 }

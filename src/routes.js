@@ -3,9 +3,11 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Icon } from 'react-native-elements';
+import { colors } from './styles';
 
 import Home from './pages/Home';
 import Dishes from './pages/Dishes';
+import Fake from './pages/Fake';
 
 const HomeNavigator = createStackNavigator(
   {
@@ -16,7 +18,7 @@ const HomeNavigator = createStackNavigator(
         headerStyle: {
           backgroundColor: '#fff',
         },
-        headerTintColor: '#f4111e',
+        headerTintColor: colors.primary,
         headerTitleStyle: {
           fontWeight: 'bold',
         },
@@ -34,7 +36,9 @@ const Routes = createAppContainer(
   createBottomTabNavigator(
     {
       Home: HomeNavigator,
-      // Other pages
+      Busca: Fake,
+      Pedidos: Fake,
+      Perfil: Fake,
     },
     {
       initialRouteName: 'Home',
@@ -43,8 +47,22 @@ const Routes = createAppContainer(
         tabBarIcon: ({ tintColor }) => {
           const { routeName } = navigation.state;
           let iconName;
-          if (routeName === 'Home') {
-            iconName = 'home';
+          switch (routeName) {
+            case 'Home':
+              iconName = 'home';
+              break;
+            case 'Busca':
+              iconName = 'search';
+              break;
+            case 'Pedidos':
+              iconName = 'list';
+              break;
+            case 'Perfil':
+              iconName = 'user';
+              break;
+            default:
+              iconName = '';
+              break;
           }
           return (
             <Icon

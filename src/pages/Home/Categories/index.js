@@ -1,16 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { View, FlatList } from 'react-native';
+import { View, FlatList, Image, Text, TouchableOpacity } from 'react-native';
+
 import styles from './styles';
 import api from '../../../services/api';
-import renderCategory from './components/renderCategory';
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
 
   const loadCategories = async () => {
     const response = await api.get('/categories');
-    setCategories(response.data);
+    const categoriesData = response.data.map(cat => ({
+      ...cat,
+      id: cat.id.toString(),
+    }));
+
+    setCategories(categoriesData);
   };
+
+  const renderCategoryItem = ({ item }) => (
+    <TouchableOpacity style={styles.container}>
+      <Image source={{ uri: item.url }} style={styles.image} />
+      <Text style={styles.title}>{item.title}</Text>
+    </TouchableOpacity>
+  );
 
   useEffect(() => {
     loadCategories();
@@ -20,10 +32,10 @@ export default function Categories() {
     <View style={styles.categoriesContainer}>
       <FlatList
         data={categories}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.id}
         horizontal
         showsHorizontalScrollIndicator={false}
-        renderItem={renderCategory}
+        renderItem={renderCategoryItem}
       />
     </View>
   );
